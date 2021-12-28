@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -22,25 +21,33 @@ class IntroPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.logout),
-                  label: const Text('Logout'),
-                ),
-                // RichText(
-                //     text: TextSpan(
-                //         text: 'Logout',
-                //         style: const TextStyle(
-                //             color: Color(0xff5DB0A8),
-                //             fontWeight: FontWeight.bold),
-                //         recognizer: TapGestureRecognizer()
-                //           ..onTap = () {
-                //           })),
-                // IconButton(
-                //   onPressed: () {},
-                //   icon: const Icon(Icons.logout),
-                //   color: const Color(0xff5DB0A8),
-                // ),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Row(
+                      children: <Widget>[
+                        RichText(
+                            text: const TextSpan(
+                          text: 'Logout',
+                          style: TextStyle(
+                              color: Color(0xff5DB0A8),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
+                        )),
+                        Container(
+                            decoration: const BoxDecoration(
+                                color: Color(0xff5DB0A8),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(7.5))),
+                            margin: const EdgeInsets.only(left: 5),
+                            padding: const EdgeInsets.all(2),
+                            child: const Icon(
+                              Icons.logout,
+                              color: Colors.white,
+                            )),
+                      ],
+                    )),
                 const SizedBox(
                   width: 50,
                 )
